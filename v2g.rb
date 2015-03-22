@@ -41,4 +41,7 @@ def yt_grab
   vids.each { |v|
   	gfy v
   }
+  p "completed: #{vids.length} @ #{Time.now}"
 end
+
+yt_grab

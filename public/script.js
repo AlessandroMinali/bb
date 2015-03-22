@@ -32,10 +32,10 @@ function doSomething() {
 		copy.style.display = "none";
 	} 
 	if (width < 601) {
-		x = 1		
+		x = 1	;
 	}
 
-	var items = getElementsByTagNames("canvas,div,video")
+	var items = getElementsByTagNames("canvas,div,video");
 	var i; var j;
 
 	banner = document.getElementsByTagName("header");
