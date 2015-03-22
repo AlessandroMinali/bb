@@ -1,6 +1,9 @@
-body {
+html, body {
 	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 	background-color: black;
+	margin: 0 auto;
+	height: 100%;
+	color: white;
 }
 
 div, canvas, video, img {

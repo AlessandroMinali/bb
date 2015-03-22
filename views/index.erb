@@ -1,5 +1,5 @@
 <% @clips.each do |c| %>
-<a href="https://www.youtube.com/v/<%= c.yt_tag %>?autoplay=1&fmt=22&rel=0">
+<a href="/video/<%= c.yt_tag %>">
 	<img class="gfyitem" data-id=<%= c.gfy_tag %> data-controls="false" data-dot="false"/>
 </a>
 <% end %>

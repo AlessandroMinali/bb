@@ -8,10 +8,10 @@
   <meta name="description" content="Bloodborne Video Clips">
   <meta name="author" content="Alessandro Minali">
 
-  <link rel="stylesheet" href="normalize.css">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="/normalize.css">
+  <link rel="stylesheet" href="/style.css">
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-	<script type="text/javascript" src="script.js"></script>
+	<script type="text/javascript" src="/script.js"></script>
 
   <!--[if lt IE 9]>
   <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -34,6 +34,9 @@
 	<%= yield %>
 
 	<footer>
+		<a title="Home" href="/">
+			  <i class="fa fa-home fa-lg"></i>
+		</a>		
 		<a title="Twitch" href="http://www.twitch.tv/silentbunny">
 			  <i class="fa fa-twitch fa-lg"></i>
 		</a>
@@ -43,12 +46,13 @@
 		<a title="Gmail" href="mailto:alessandro.minali@mail.com">
 			<i class="fa fa-envelope fa-lg"></i>
 		</a>
-		<a title="Question" href="./about">
+		<a title="Question" href="/about">
 			  <i class="fa fa-question fa-lg"></i>
 		</a>
-		<a title="Submit" href="./submit">Submit Clip
+		<a title="Submit" href="/submit">Submit Clip
 			  <span class="fa fa-sign-out fa-lg"></span>
 		</a>
+		<i id="copy" style="position:absolute; right: 0px; color:black; font-size:9px;">Made by <a href="https://github.com/AlessandroMinali">alessandro</a> 2015 ©</i>
 	</footer>
 </body>
 </html>

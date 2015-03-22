@@ -25,11 +25,14 @@ function doSomething() {
 	var width = "innerWidth" in window ? window.innerWidth : document.documentElement.offsetWidth;
 
 	var x = 3
+	copy = document.getElementById("copy");
+	copy.style.display = "";
 	if (width < 961) {
 		x = 2;
+		copy.style.display = "none";
 	} 
-	if (width < 481) {
-		x = 1
+	if (width < 601) {
+		x = 1		
 	}
 
 	var items = getElementsByTagNames("canvas,div,video")

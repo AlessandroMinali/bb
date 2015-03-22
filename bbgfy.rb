@@ -10,26 +10,41 @@ helpers do
 	end
 end
 
-get '/' do
+before do
 	@live = "none" if offline? 'silentbunny'
+end
+
+get '/' do
 	@clips = Clip.all(:limit => 9).shuffle
 	erb :index
 end
 
 get '/about' do
-	"More bloodborne content to come!<br><h1>Planned</h1><ul><li>signing up to have your clips displayed</li><li>personal pages</li><li>voting</li><li>sharing on twitter</li><li>builds</li><li>pvp tactics</li><li>fashion!</li></ul>
-	<hr><a href='http://twitch.tv/silentbunny'>Suggestions welcome over at my stream :) <3</a><hr><a href='/'>Back</a>"
+	erb :about
 end
 
 get '/submit' do
-	'<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"> want to get a notification when I make this an option? email me :)<a title="Gmail" href="mailto:alessandro.minali@mail.com">
-			<i class="fa fa-envelope fa-lg"></i></a><hr><a href="/">Back</a>'
+	erb :submit
 end
 
 not_found do
   redirect('/')
 end
 
+get '/video/:id' do
+	@id = params[:id]
+	erb :video
+end
+
 error do
   'Sorry there was a nasty error - ' + env['sinatra.error'].name
 end
+
+#clean up secrets
+#make v2g  background task that can be spun up for a specific user
+#filter yt by string in title
+#make user sign up page | model
+#display user pages
+#simple email campaign
+
+#play button || like button
