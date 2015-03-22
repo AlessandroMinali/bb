@@ -22,18 +22,20 @@ function getElementsByTagNames(elements) {
 }
 
 function doSomething() {
-	var width = "innerWidth" in window ? window.innerWidth : document.documentElement.offsetWidth;
-
-	var x = 3
+	// var width = "innerWidth" in window ? window.innerWidth : document.documentElement.offsetWidth;
+	var width = document.body.clientWidth
 	copy = document.getElementById("copy");
 	copy.style.display = "";
-	if (width < 961) {
+	var x = 3
+
+	if (width <= 960) {
 		x = 2;
-		copy.style.display = "none";
 	} 
-	if (width < 601) {
+	if (width < 700) {
 		x = 1	;
+		copy.style.display = "none";
 	}
+	console.log(x);
 
 	var items = getElementsByTagNames("canvas,div,video");
 	var i; var j;
