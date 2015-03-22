@@ -1,2 +1,15 @@
-require File.expand_path('../app.rb', __FILE__)
-run Sinatra::Application
+---
+ environment: production
+ chdir: /var/www/my_app
+ address: 127.0.0.1
+ user: root
+ group: root
+ port: 4567
+ pid: /var/www/my_app/pids/thin.pid
+ rackup: /var/www/my_app/config.ru
+ log: /var/www/my_app/logs/thin.log
+ max_conns: 1024
+ timeout: 30
+ max_persistent_conns: 512
+ daemonize: true
+
