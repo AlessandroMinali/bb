@@ -1,13 +1,13 @@
 ---
  environment: production
- chdir: /var/www/my_app
+ chdir: /var/www/bb
  address: 127.0.0.1
  user: root
  group: root
  port: 4567
- pid: /var/www/my_app/pids/thin.pid
- rackup: /var/www/my_app/config.ru
- log: /var/www/my_app/logs/thin.log
+ pid: /var/www/bb/pids/thin.pid
+ rackup: /var/www/bb/config.ru
+ log: /var/www/bb/logs/thin.log
  max_conns: 1024
  timeout: 30
  max_persistent_conns: 512

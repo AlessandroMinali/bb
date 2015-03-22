@@ -1,2 +1,7 @@
-require File.expand_path('../app.rb', __FILE__)
-run Sinatra::Application
+source 'https://rubygems.org'
+
+gem 'sinatra'
+gem 'thin'
+gem 'json'
+gem 'data_mapper'
+gem 'dm-sqlite-adapter'
