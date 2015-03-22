@@ -44,4 +44,7 @@ def yt_grab
   p "completed: #{vids.length} @ #{Time.now}"
 end
 
-yt_grab
+if $0 == __FILE__
+  # do stuff
+  yt_grab
+end

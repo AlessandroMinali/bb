@@ -1,11 +1,12 @@
 require 'sinatra'
+require 'json'
 require_relative 'v2g.rb'
 
 helpers do
 	def offline? channel
-	  uri = URI('https://api.twitch.tv/kraken/streams/'+ channel)
+	  uri = URI('https://api.twitch.tv/kraken/streams/' + channel)
 	  JSON.parse(
-	  	Net::HTTP.get_response(URI('https://api.twitch.tv/kraken/streams/'+ channel)).body
+	  	Net::HTTP.get_response(URI('https://api.twitch.tv/kraken/streams/' + channel)).body
 	  )["stream"].nil?
 	end
 end
