@@ -26,6 +26,10 @@
 *.sql
 *.sqlite
 *.db
+
+# Server Sensitive Info #
+#########################
+*.pid
  
 # OS generated files #
 ######################
