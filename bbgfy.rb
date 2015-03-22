@@ -25,3 +25,11 @@ get '/submit' do
 	'<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"> want to get a notification when I make this an option? email me :)<a title="Gmail" href="mailto:alessandro.minali@mail.com">
 			<i class="fa fa-envelope fa-lg"></i></a><hr><a href="/">Back</a>'
 end
+
+not_found do
+  redirect('/')
+end
+
+error do
+  'Sorry there was a nasty error - ' + env['sinatra.error'].name
+end
