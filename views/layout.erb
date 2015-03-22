@@ -1,0 +1,54 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Visions of Blood</title>
+  <meta name="description" content="Bloodborne Video Clips">
+  <meta name="author" content="Alessandro Minali">
+
+  <link rel="stylesheet" href="normalize.css">
+  <link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+	<script type="text/javascript" src="script.js"></script>
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <script>
+	 (function(d, t) {
+	    var g = d.createElement(t),
+	        s = d.getElementsByTagName(t)[0];
+	    g.src = 'http://assets.gfycat.com/js/gfyajax-0.517d.js';
+	    s.parentNode.insertBefore(g, s);
+		}(document, 'script'));
+	</script>
+</head>
+
+<body>
+	<header style="display:<%= @live %>">
+		<a class="live" href="http://www.twitch.tv/silentbunny"><h4>LIVE NOW!</h4></a> <i id="ignore" class="fa fa-times  close"></i>
+	</header>
+
+	<%= yield %>
+
+	<footer>
+		<a title="Twitch" href="http://www.twitch.tv/silentbunny">
+			  <i class="fa fa-twitch fa-lg"></i>
+		</a>
+		<a title="Twitter" href="https://twitter.com/am_silent0">
+		  <i class="fa fa-twitter fa-lg"></i>
+		</a>
+		<a title="Gmail" href="mailto:alessandro.minali@mail.com">
+			<i class="fa fa-envelope fa-lg"></i>
+		</a>
+		<a title="Question" href="./about">
+			  <i class="fa fa-question fa-lg"></i>
+		</a>
+		<a title="Submit" href="./submit">Submit Clip
+			  <span class="fa fa-sign-out fa-lg"></span>
+		</a>
+	</footer>
+</body>
+</html>
