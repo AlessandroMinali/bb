@@ -1,10 +1,10 @@
 setInterval ("doSomething()", 250);
-setTimeout ("setup()", 1000);
+// setTimeout ("setup()", 1000);
 
-function setup() {
-	var el = document.getElementById("ignore");
-	el.addEventListener("click", hidePrompt, false);
-}
+// function setup() {
+// 	var el = document.getElementById("ignore");
+// 	el.addEventListener("click", hidePrompt, false);
+// }
 
 function hidePrompt() {
 	banner = document.getElementsByTagName("header");
@@ -22,7 +22,6 @@ function getElementsByTagNames(elements) {
 }
 
 function doSomething() {
-	// var width = "innerWidth" in window ? window.innerWidth : document.documentElement.offsetWidth;
 	var width = document.body.clientWidth
 	copy = document.getElementById("copy");
 	copy.style.display = "";
@@ -35,13 +34,13 @@ function doSomething() {
 		x = 1	;
 		copy.style.display = "none";
 	}
-	console.log(x);
 
 	var items = getElementsByTagNames("canvas,div,video");
 	var i; var j;
 
-	banner = document.getElementsByTagName("header");
-	banner[0].style.left = (width/2 - 100	) + "px";
+	//live banner
+	// banner = document.getElementsByTagName("header");
+	// banner[0].style.left = (width/2 - 100	) + "px";
 
 	for (i = 0; i < items.length; i++) {
 		for (j = 0; j < items[i].length; j++) {

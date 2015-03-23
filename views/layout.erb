@@ -27,16 +27,22 @@
 </head>
 
 <body>
-	<header style="display:<%= @live %>">
+<!-- 	<header style="display:<%= @live %>">
 		<a class="live" href="http://www.twitch.tv/silentbunny"><h4>LIVE NOW!</h4></a> <i id="ignore" class="fa fa-times  close"></i>
-	</header>
+	</header> -->
 
 	<%= yield %>
 
 	<footer>
+		<% if request.path_info.include? '/video' %>
+		<a title="Back" href="/u/<%= @owner %>">
+			  <i class="fa fa-chevron-left fa-lg"></i>
+		</a>
+		<% end %>
 		<a title="Home" href="/">
 			  <i class="fa fa-home fa-lg"></i>
-		</a>		
+		</a>
+    <% if ['/about'].include? request.path_info %>
 		<a title="Twitch" href="http://www.twitch.tv/silentbunny">
 			  <i class="fa fa-twitch fa-lg"></i>
 		</a>
@@ -46,10 +52,14 @@
 		<a title="Gmail" href="mailto:alessandro.minali@mail.com">
 			<i class="fa fa-envelope fa-lg"></i>
 		</a>
+		<% end %>
+		<a title="User List" href="/u">
+			  <i class="fa fa-list fa-lg"></i>
+		</a>
 		<a title="Question" href="/about">
 			  <i class="fa fa-question fa-lg"></i>
 		</a>
-		<a title="Submit" href="/submit">Submit Clip
+		<a title="Submit" href="/signup">Submit Clips
 			  <span class="fa fa-sign-out fa-lg"></span>
 		</a>
 		<i id="copy" style="position:absolute; right: 0px; color:black; font-size:9px;">Made by <a href="https://github.com/AlessandroMinali">alessandro</a> 2015 ©</i>

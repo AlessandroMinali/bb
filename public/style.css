@@ -80,3 +80,13 @@ a:hover {
 	text-decoration: none;
 	font-size: larger;
 }
+
+form {
+	padding-top: 20px;
+	width: 250px;
+	margin: 0 auto;
+}
+
+input{
+	color: black;
+}
