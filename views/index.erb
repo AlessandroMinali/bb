@@ -3,3 +3,17 @@
 	<img class="gfyitem" data-id=<%= c.gfy_tag %> data-controls="false" data-dot="false"/>
 </a>
 <% end %>
+
+<% if @clips.empty? %>
+<article style="margin-left:15px;">
+<h2>Welcome to BloodBorne.me. Let's get started !</h2>
+<ul style="color:white">
+	<li>Look at the URL and verify that we linked the right youtube account</li>
+	<li>Upload vids to that account</li>
+	<li>Be sure to add #BB in either the title or description of the video</li>
+	<li>Share your bloodborne.me page link and enjoy your video clips*</li>
+	<li>Have fun!</li>
+</ul>
+<h5>*Video clips are updated every 15 minutes</h5>
+</article>
+<% end %>

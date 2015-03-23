@@ -1,4 +1,4 @@
-setInterval ("doSomething()", 250);
+setInterval ("doSomething()", 200);
 // setTimeout ("setup()", 1000);
 
 // function setup() {
@@ -25,6 +25,8 @@ function doSomething() {
 	var width = document.body.clientWidth
 	copy = document.getElementById("copy");
 	copy.style.display = "";
+	version = document.getElementById("version");
+	version.style.display = "";
 	var x = 3
 
 	if (width <= 960) {
@@ -33,6 +35,7 @@ function doSomething() {
 	if (width < 700) {
 		x = 1	;
 		copy.style.display = "none";
+		version.style.display = "none";
 	}
 
 	var items = getElementsByTagNames("canvas,div,video");

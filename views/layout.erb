@@ -33,36 +33,38 @@
 
 	<%= yield %>
 
-	<footer>
+	<footer style="color:black;">
 		<% if request.path_info.include? '/video' %>
-		<a title="Back" href="/u/<%= @owner %>">
+		<a style="padding-right:20px;" title="Back" href="/u/<%= @owner %>">Go Back
 			  <i class="fa fa-chevron-left fa-lg"></i>
 		</a>
-		<% end %>
+		<% else %>
 		<a title="Home" href="/">
 			  <i class="fa fa-home fa-lg"></i>
-		</a>
+		</a> |
     <% if ['/about'].include? request.path_info %>
 		<a title="Twitch" href="http://www.twitch.tv/silentbunny">
 			  <i class="fa fa-twitch fa-lg"></i>
-		</a>
+		</a> |
 		<a title="Twitter" href="https://twitter.com/am_silent0">
 		  <i class="fa fa-twitter fa-lg"></i>
-		</a>
+		</a> | 
 		<a title="Gmail" href="mailto:alessandro.minali@mail.com">
 			<i class="fa fa-envelope fa-lg"></i>
-		</a>
+		</a> | 
 		<% end %>
-		<a title="User List" href="/u">
+		<a title="User List" href="/u">Users
 			  <i class="fa fa-list fa-lg"></i>
-		</a>
-		<a title="Question" href="/about">
+		</a> | 
+		<a title="Question" href="/about">About
 			  <i class="fa fa-question fa-lg"></i>
-		</a>
+		</a> | 
 		<a title="Submit" href="/signup">Submit Clips
 			  <span class="fa fa-sign-out fa-lg"></span>
 		</a>
+		<% end %>
 		<i id="copy" style="position:absolute; right: 0px; color:black; font-size:9px;">Made by <a href="https://github.com/AlessandroMinali">alessandro</a> 2015 ©</i>
+		<i id="version" style="position:absolute; top:-3px; left: 0px; color:black; font-size:16px;">ALPHA.v1</i>
 	</footer>
 </body>
 </html>
