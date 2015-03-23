@@ -22,7 +22,11 @@ helpers do
 	def channel_exists? name
 	  tmp = get "https://www.googleapis.com/youtube/v3/search?part=snippet&channelType=any&q=#{name}&type=channel&key=AIzaSyAz1-j_VYeDE_3rdlXfFul5EdIU1bC4jMQ&maxResults=1"
 	  tmp = JSON.parse(tmp.body)
-    tmp['items'][0]['id']['channelId']
+    begin
+    	tmp['items'][0]['id']['channelId']
+    rescue
+    	halt "channel name not found try again<hr><a href=#{request.referer}>Back</a>"
+    end
 	end
 end
 
@@ -66,7 +70,7 @@ post '/signup' do
 	end
 	halt b + "<hr><a href=#{request.referer}>Back</a>" unless b.empty?
 	id = channel_exists?(chan)
-
+	halt "bloodborne.me account already exists<hr><a href='/u/#{chan}'>Go to page</a>" unless (User.first(:yt_name => chan)).nil?
 	ha, se = hash_n_salt pass
 	u = User.new
 	u.yt_name = chan
