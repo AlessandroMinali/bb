@@ -117,6 +117,7 @@ end
 get '/u/:id/video/:video' do
 	@id = params[:id]
 	@video = params[:video]
+	halt "user does not own this video<hr><a href='/'>Back</a>" if (Clip.first(:owner => @id, :yt_tag => @video)).nil?
 	erb :video
 end
 
