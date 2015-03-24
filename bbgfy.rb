@@ -96,7 +96,7 @@ post '/signup' do
 	chan = tmp[1]
 	id = tmp[0]
 
-	halt "invalid email<hr><a href=#{request.referer}>Back</a>" if (/.*@.*/ =~ email).nil?
+	halt "invalid email<hr><a href=#{request.referer}>Back</a>" if (/\S*@\S*/ =~ email).nil?
 	halt "email already in use<hr><a href=#{request.referer}>Back</a>" unless (User.first(:email => email)).nil?
 	halt "bloodborne.me account already exists<hr><a href='/u/#{chan}'>Go to page</a>" unless (User.first(:yt_name => chan)).nil?
 	ha, se = hash_n_salt email
