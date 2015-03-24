@@ -40,12 +40,10 @@ helpers do
 	def matches q
 		tmp = get "https://www.googleapis.com/youtube/v3/search?part=snippet&channelType=any&q=#{q}&type=channel&key=#{$api}&maxResults=5"
 		tmp = JSON.parse(tmp.body)
-		jj tmp
 		chans = []
 		tmp['items'].each { |i|
 			chans << [i['id']['channelId'], i['snippet']['title'], i['snippet']['channelTitle']]
 		}
-		p chans
 	end
 end
 
