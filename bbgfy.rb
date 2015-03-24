@@ -90,11 +90,12 @@ end
 
 #verify signup details and reroute if mal formed
 post '/signup' do
+	halt "select a channel<hr><a href=#{request.referer}>Back</a>" if params['chan-info'].nil?
 	tmp = params['chan-info'].split(',')
 	email = params[:email]
 	chan = tmp[1]
 	id = tmp[0]
-	
+
 	halt "invalid email<hr><a href=#{request.referer}>Back</a>" if (/.*@.*/ =~ email).nil?
 	halt "email already in use<hr><a href=#{request.referer}>Back</a>" unless (User.first(:email => email)).nil?
 	halt "bloodborne.me account already exists<hr><a href='/u/#{chan}'>Go to page</a>" unless (User.first(:yt_name => chan)).nil?
