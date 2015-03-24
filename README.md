@@ -1,16 +1,7 @@
 #bb
 
-give youtube channel name  
 promote :)  
 
-clean up ionstructions  
-clean up info pages  
-
-clean up secrets  
-make v2g  background task that can be spun up for a specific user  
-filter yt by string in title  
-make user sign up page | model  
-display user pages  
 simple email campaign  
 
 play button || like button  

@@ -1,0 +1,23 @@
+<form method="post" action="/signup">
+	<fieldset>
+		<legend>Register Part 2</legend>
+		<label for="channel">Choose the correct youtube channel:</label>
+		<br>
+		<% @choose.each do |c| %>
+		<br>
+		<span style="display:inline-block"><input type="radio" name="chan-info" value="<%= c[0] + ','+ c[1]%>" /></span>
+		<span style="display:inline-block">
+		Title: <%= c[1] %>
+		<br>
+		ChannelTitle: <%= c[2] %>
+		</span>
+		<br>
+		<% end %>
+		<hr>
+		<label for="email">Email Address:</label>
+		<br>
+		<input type="email" name="email" placeholder="email address" />
+		<hr>
+		<input type="submit"/>
+	</fieldset>
+</form>

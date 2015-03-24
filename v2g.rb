@@ -1,6 +1,9 @@
 require 'net/http'
 require 'json'
 require 'data_mapper'
+require_relative 'keys'
+
+$api = Key.new.api
 
 DataMapper::setup(:default, "sqlite3://#{Dir.pwd}/collection.db")
 
@@ -17,7 +20,8 @@ class User
   property :id, Serial
   property :yt_name, Text, :required => true, :unique => true
   property :yt_id, Text, :required => true, :unique => true
-  property :pass, Text, :required => true
+  property :pass, Text
+  property :email, Text, :required => true, :unique => true
   property :slug, Text, :required => true
   property :twitch_name, Text
   property :twitter_name, Text
@@ -38,13 +42,13 @@ def gfy video, channel
   c.yt_tag = v
   c.gfy_tag = JSON.parse(tmp.body)['gfyname']
   c.save
-  p c
+  p "#{c} @ #{Time.now}"
 end
 
 def yt_grab user, clips
   user.yt_id[1] = 'U'
   id = user.yt_id
-  tmp = get "https://www.googleapis.com/youtube/v3/playlistItems?part=contentDetails,snippet,status&playlistId=#{id}&key=AIzaSyAz1-j_VYeDE_3rdlXfFul5EdIU1bC4jMQ&maxResults=25"
+  tmp = get "https://www.googleapis.com/youtube/v3/playlistItems?part=contentDetails,snippet,status&playlistId=#{id}&key=#{$api}=&maxResults=25"
   vids = JSON.parse(tmp.body)['items'].select { |i|
     i['status']['privacyStatus'] == 'public' && (i['snippet']['title'].downcase.include?('#bb') || i['snippet']['description'].downcase.include?('#bb')) && clips.all? { |c|
     	i['contentDetails']['videoId'] != c.yt_tag
@@ -53,7 +57,6 @@ def yt_grab user, clips
   vids.each { |v|
   	gfy v, user.yt_name
   }
-  p "completed: #{clips.length} @ #{Time.now}"
 end
 
 def work

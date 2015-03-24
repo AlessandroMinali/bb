@@ -30,8 +30,7 @@
 <!-- 	<header style="display:<%= @live %>">
 		<a class="live" href="http://www.twitch.tv/silentbunny"><h4>LIVE NOW!</h4></a> <i id="ignore" class="fa fa-times  close"></i>
 	</header> -->
-
-	<%= yield %>
+	<%== yield %>
 
 	<footer style="color:black;">
 		<% if request.path_info.include? '/video' %>
@@ -65,7 +64,13 @@
 			<% end %>
 		<% end %>
 		<i id="copy" style="position:absolute; right: 0px; color:black; font-size:9px;">Made by <a href="https://github.com/AlessandroMinali">alessandro</a> 2015 ©</i>
-		<i id="version" style="position:absolute; top:-3px; left: 3px; color:black; font-size:16px;">ALPHA.v1</i>
+		<i id="version" style="position:absolute; top:-3px; left: 3px; color:black; font-size:16px;">
+			<% if /\/u\/./ =~ request.path_info %>
+				<%= @id %>
+			<% else %>
+				ALPHA.v1
+			<% end %>
+		</i>
 	</footer>
 </body>
 </html>

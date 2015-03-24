@@ -26,6 +26,7 @@
 *.sql
 *.sqlite
 *.db
+*.secret
 
 # Server Sensitive Info #
 #########################
@@ -40,3 +41,4 @@
 .Trashes
 ehthumbs.db
 Thumbs.db
+keys.rb
