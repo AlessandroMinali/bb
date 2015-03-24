@@ -44,6 +44,7 @@ helpers do
 		tmp['items'].each { |i|
 			chans << [i['id']['channelId'], i['snippet']['title'], i['snippet']['channelTitle']]
 		}
+		chans
 	end
 end
 
@@ -93,14 +94,14 @@ post '/signup' do
 	email = params[:email]
 	chan = tmp[1]
 	id = tmp[0]
-
+	
 	halt "invalid email<hr><a href=#{request.referer}>Back</a>" if (/.*@.*/ =~ email).nil?
 	halt "email already in use<hr><a href=#{request.referer}>Back</a>" unless (User.first(:email => email)).nil?
 	halt "bloodborne.me account already exists<hr><a href='/u/#{chan}'>Go to page</a>" unless (User.first(:yt_name => chan)).nil?
 	ha, se = hash_n_salt email
 
 	u = User.new
-	u.yt_name = chan.gsub!(/ /,'_')
+	u.yt_name = chan.gsub(/ /,'_')
 	u.yt_id = id
 	u.email = email
 	u.pass = ha
