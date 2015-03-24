@@ -101,8 +101,9 @@ post '/signup' do
 	halt "bloodborne.me account already exists<hr><a href='/u/#{chan}'>Go to page</a>" unless (User.first(:yt_name => chan)).nil?
 	ha, se = hash_n_salt email
 
+	chan = chan.gsub(/ /,'_')
 	u = User.new
-	u.yt_name = chan.gsub(/ /,'_')
+	u.yt_name = chan
 	u.yt_id = id
 	u.email = email
 	u.pass = ha
