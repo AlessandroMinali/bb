@@ -48,7 +48,7 @@ GEM
     json (2.1.0)
     mustermann (1.0.3)
     public_suffix (3.0.3)
-    rack (2.0.6)
+    rack (2.2.2)
     rack-flash3 (1.0.5)
       rack
     rack-protection (2.0.4)
@@ -77,4 +77,4 @@ DEPENDENCIES
   thin
 
 BUNDLED WITH
-   1.16.3
+   1.16.6
